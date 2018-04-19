@@ -91,17 +91,6 @@ public class SOAPAPICallAsyncTask extends AsyncTask<Void, Void, SoapObject> {
         super.onPostExecute(soapObject);
         if (soapObject!=null){
             mListener.success(soapObject);
-        }else{
-            if (context!=null) {
-                if (NetworkUtils.isInternetAvailable(context)) {
-                    mListener.error(new ServiceError(NetworkUtils.COMMUNICATION_ERROR));
-                } else {
-
-
-                    mListener.error(new ServiceError(NetworkUtils.CONNECTION_ERROR));
-
-                }
-            }
         }
     }
 }
